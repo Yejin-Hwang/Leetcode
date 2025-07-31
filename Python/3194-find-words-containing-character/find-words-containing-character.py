@@ -5,8 +5,6 @@ class Solution:
             if x in word: 
                 output.append(i)
         return output
-
-
-                
+       
 
         
