@@ -1,8 +1,16 @@
+from functools import cache
 class Solution:
+    @cache
     def climbStairs(self, n: int) -> int:
-        dp = [0] * (n + 1)
-        dp[0],dp[1] = 1,1 # base case
+
+        if n==1: 
+            return 1
         
-        for i in range(2,n+1): 
-            dp[i] = dp[i-2] + dp[i-1]
-        return dp[n]
+        elif n==2: #1+1, 2
+            return 2
+        
+        elif n==3: #1+2, 2+1, 1+1+1
+            return 3
+        
+        elif n>3: 
+            return self.climbStairs(n-1)+ self.climbStairs(n-2)
